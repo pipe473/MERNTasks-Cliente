@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
 
@@ -18,12 +19,25 @@ const onChange = e => {
     })
 }
 
+// Cuando el usuario quiere iniciar sesión
+const onSubmit = e => {
+    e.preventDefault();
+
+// Validar que no hayan campos vacios
+
+// Pasarlo al action
+
+
+}
+
     return ( 
         <div className="form-usuario">
             <div className="contenedor-form sombra-dark">
                 <h1>Iniciar Sesión</h1>
 
-                <form>
+                <form
+                    onSubmit={onSubmit}
+                >
                     <div className="campo-form">
                         <label htmlFor="email">Email</label>
                         <input
@@ -54,6 +68,9 @@ const onChange = e => {
                         />
                     </div>
                 </form>
+                <Link to={'/nueva-cuenta'} className="enlace-cuenta">
+                    Crea tu cuenta
+                </Link>
             </div>
         </div>
      );
