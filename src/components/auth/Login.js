@@ -25,6 +25,10 @@ const onSubmit = e => {
 
 // Validar que no hayan campos vacios
 
+// Password mínimo de 6 caracteres
+
+// Los 2 passwords son iguales
+
 // Pasarlo al action
 
 
@@ -45,7 +49,7 @@ const onSubmit = e => {
                             id="email"
                             name="email"
                             value={email}
-                            placeholder="Escribe aquí tu email"
+                            placeholder="Escribe tu email"
                             onChange={onChange}
                         />
                     </div>
