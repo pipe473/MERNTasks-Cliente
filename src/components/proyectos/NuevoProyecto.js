@@ -34,7 +34,7 @@ const NuevoProyecto = () => {
   }
 
   // Mostrar el formulario
-  const onClick = () => {
+  const onClickFormulario = () => {
     mostrarFormulario();
   }
 
@@ -43,7 +43,7 @@ const NuevoProyecto = () => {
       <button 
           type="button" 
           className="btn btn-block btn-primario"
-          onClick={ onClick }
+          onClick={ onClickFormulario }
           >Nuevo Proyecto
       </button>
 
