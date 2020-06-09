@@ -20,13 +20,17 @@ const onchangeProyecto = e => {
 }
 
 // Cuando el usuario envia un proyecto
-e.preventDefault();
+const onSubmitProyecto = e => {
+    e.preventDefault();
+    
+    // Validar el proyecto
+    
+    // Agregar al state
+    
+    // Reiniciar el form
 
-// Validar el proyecto
+}
 
-// Agregar al state
-
-// Reiniciar el form
 
   return (
     <Fragment>
