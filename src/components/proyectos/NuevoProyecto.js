@@ -31,14 +31,19 @@ const NuevoProyecto = () => {
     // Agregar al state
 
     // Reiniciar el form
-  };
+  }
+
+  // Mostrar el formulario
+  const onClick = () => {
+    mostrarFormulario();
+  }
 
   return (
     <Fragment>
       <button 
           type="button" 
           className="btn btn-block btn-primario"
-          onClick={() => mostrarFormulario() }
+          onClick={ onClick }
           >Nuevo Proyecto
       </button>
 
