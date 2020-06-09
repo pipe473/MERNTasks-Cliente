@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Tarea = () => {
-    return (  );
+    return ( <p>Desde tarea</p> );
 }
  
 export default Tarea;
