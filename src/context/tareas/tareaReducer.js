@@ -45,7 +45,6 @@ export default (state, action) => {
                 tareaseleccionada: action.payload
             }
 
-
         default:
             return state;
     }
