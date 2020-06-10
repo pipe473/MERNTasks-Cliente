@@ -30,13 +30,15 @@ const ListadoTareas = () => {
       <h2>Proyecto: {proyectoActual.nombre}</h2>
 
       <ul className="listado-tareas">
-        {tareasproyecto.length === 0 ? (
-          <li className="tarea">
-            <p>No hay tareas</p>
-          </li>
-        ) : (
-            tareasproyecto.map((tarea) => <Tarea tarea={tarea} />)
-        )}
+        { tareasproyecto.length === 0 
+            ? ( <li className="tarea"><p>No hay tareas</p></li>) 
+            : tareasproyecto.map(tarea => (
+                    <Tarea 
+                        key={tarea.id}
+                        tarea={tarea} 
+                    />
+                ))
+        }
       </ul>
 
       <button

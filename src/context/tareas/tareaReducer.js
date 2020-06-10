@@ -2,7 +2,8 @@
 import {
     TAREAS_PROYECTO,
     AGREGAR_TAREA,
-    VALIDAR_TAREA 
+    VALIDAR_TAREA,
+    ELIMINAR_TAREA 
 } from '../../types';
 
 export default (state, action) => {
@@ -23,6 +24,12 @@ export default (state, action) => {
             return {
                 ...state,
                 errortarea: true
+            }
+        case ELIMINAR_TAREA:
+            return {
+                ...state,
+                tareas: state.tareas.filter(tarea => tarea.id !== action.payload )
+
             }
 
 
