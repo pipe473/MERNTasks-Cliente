@@ -93,7 +93,8 @@ const TareaState = (props) => {
   // Edita o modifica una tarea
   const actualizarTarea = tarea => {
       dispatch({
-          type: ACTUALIZAR_TAREA
+          type: ACTUALIZAR_TAREA,
+          payload: tarea
       })
   }
 
