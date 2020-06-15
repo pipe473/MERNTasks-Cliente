@@ -36,7 +36,19 @@ if( nombre.trim() === '' ||
      password.trim() === '' || 
      confirmar.trim() === '' ) {
          mostrarAlerta('Todos los campos son obligatorios', 'alerta-error');
+         return;
      }
+
+// Password mínimo de 6 caracteres
+if(password.length < 6) {
+    mostrarAlerta('El password debe tener almenos 6 carateres', 'alerta-error');
+    return;
+}
+
+// Los 2 passwords son iguales
+if(password !== confirmar) {
+    mostrarAlerta('Los passwords no son iguales', 'alerta-error');
+}
 
 // Pasarlo al action
 
@@ -91,8 +103,8 @@ if( nombre.trim() === '' ||
                         <label htmlFor="confirmar">Confirmar Password</label>
                         <input
                             type="password"
-                            id="password"
-                            name="password"
+                            id="confirmar"
+                            name="confirmar"
                             value={confirmar}
                             placeholder="Repite tu Password"
                             onChange={onChange}
