@@ -74,7 +74,7 @@ import Login from '../../components/auth/Login';
              
              dispatch({
                  type: LOGIN_ERROR
-             })
+             });
          }
      }
 
@@ -82,7 +82,14 @@ import Login from '../../components/auth/Login';
      const iniciarSesion = async datos => {
          try {
              const respuesta = await clienteAxios.post('/api/auth', datos);
-             console.log(respuesta);
+            
+             dispatch({
+                 type: LOGIN_EXITOSO,
+                 payload: respuesta.data
+             });
+
+              // Obtener usuario
+            usuarioAutenticado();
              
          } catch (error) {
             console.log(error.response.data.msg);
