@@ -2,8 +2,6 @@ import React, { useReducer } from "react";
 import TareaContext from "./tareaContext";
 import TareaReducer from "./tareaReducer";
 
-import {v4 as uuid} from "uuid"; 
-
 import {
      TAREAS_PROYECTO,
      AGREGAR_TAREA,
@@ -15,24 +13,11 @@ import {
      LIMPIAR_TAREA
 } from '../../types';
 
+import clienteAxios from '../../config/axios';
+
 const TareaState = (props) => {
-  const initialState = {
-    tareas: [
-      { id: 0, nombre: "Elegir plataforma", estado: true, proyectoId: 1 },
-      { id: 1, nombre: "Elegir Colores", estado: false, proyectoId: 2 },
-      { id: 2, nombre: "Elegir Plataformas de pago", estado: false, proyectoId: 3 },
-      { id: 3, nombre: "Elegir Hosting", estado: true, proyectoId: 4 },
-      { id: 4, nombre: "Elegir plataforma", estado: true, proyectoId: 1 },
-      { id: 5, nombre: "Elegir Colores", estado: false, proyectoId: 2 },
-      { id: 6, nombre: "Elegir Plataformas de pago", estado: false, proyectoId: 3 },
-      { id: 7, nombre: "Elegir plataforma", estado: true, proyectoId: 4 },
-      { id: 8, nombre: "Elegir Colores", estado: false, proyectoId: 1 },
-      { id: 9, nombre: "Elegir Plataformas de pago", estado: false, proyectoId: 2 },
-      { id: 10, nombre: "Elegir plataforma", estado: true, proyectoId: 3 },
-      { id: 11, nombre: "Elegir Colores", estado: false, proyectoId: 4 },
-      { id: 12, nombre: "Elegir Plataformas de pago", estado: false, proyectoId: 3 },
-    ],
-    tareasproyecto: null,
+  const initialState = {   
+    tareasproyecto: [],
     errortarea: false,
     tareaseleccionada: null
   };
@@ -51,12 +36,22 @@ const TareaState = (props) => {
   }
 
   // Agregar una tarea al proyecto seleccionado
-  const agregarTarea = tarea => {
-      tarea.id = uuid();
-      dispatch({
-          type: AGREGAR_TAREA,
-          payload: tarea
-      })
+  const agregarTarea = async tarea => {
+      console.log(tarea);
+      
+      try {
+          const resultado = await clienteAxios.post('/api/tareas', tarea);
+          console.log(resultado);
+          
+
+        dispatch({
+            type: AGREGAR_TAREA,
+            payload: tarea
+        })
+      } catch (error) {
+          console.log(error);
+          
+      }
   }
 
   // Valida y muestra un error en caso de que sea necesario
@@ -108,7 +103,6 @@ const TareaState = (props) => {
   return (
     <TareaContext.Provider
       value={{
-        tareas: state.tareas,
         tareasproyecto: state.tareasproyecto,
         errortarea: state.errortarea,
         tareaseleccionada: state.tareaseleccionada,
