@@ -13,6 +13,7 @@ import {
     LOGIN_ERROR,
     CERRAR_SESION
  } from '../../types';
+import Login from '../../components/auth/Login';
 
  const AuthState = props => {
      const initialState = {
@@ -32,7 +33,10 @@ import {
              dispatch({
                  type: REGISTRO_EXITOSO,
                  payload: respuesta.data
-             })
+             });
+
+            // Obtener usuario
+            usuarioAutenticado();
              
          } catch (error) {
             //  console.log(error.response.data.msg);
@@ -44,8 +48,26 @@ import {
              dispatch({
                  type: REGISTRO_ERROR,
                  payload: alerta
-             })
+             });
              
+         }
+     }
+
+     // Retorna el usuario autenticado
+     const usuarioAutenticado = async () => {
+         const token = localStorage.getItem('token');
+         if(token) {
+             // TODO: función para enviar el token por header
+         }
+
+         try {
+             const respuesta = await clienteAxios.get('/api/auth');
+             console.log(respuesta);
+             
+         } catch (error) {
+             dispatch({
+                 type: LOGIN_ERROR
+             })
          }
      }
 
