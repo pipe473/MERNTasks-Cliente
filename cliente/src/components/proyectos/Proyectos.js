@@ -6,7 +6,7 @@ import ListadoTareas from '../tareas/ListadoTareas';
 import AuthContext from '../../context/autenticacion/authContext';
 
 const Proyectos = () => {
-
+    
     // Extraer la información de autenticación
     const authToken = useContext(AuthContext);
     const { usuarioAutenticado } = authToken;
