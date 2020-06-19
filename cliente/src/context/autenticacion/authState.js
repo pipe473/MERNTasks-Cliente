@@ -105,6 +105,13 @@ import Login from '../../components/auth/Login';
          }
      }
 
+     // Cierra la sesión del usuario
+     const cerrarSesion = () => {
+         dispatch({
+             type: CERRAR_SESION
+         })
+     }
+
 
     return(
         <AuthContext.Provider
@@ -115,7 +122,8 @@ import Login from '../../components/auth/Login';
                 mensaje: state.mensaje,
                 registrarUsuario,
                 iniciarSesion,
-                usuarioAutenticado
+                usuarioAutenticado,
+                cerrarSesion
             }}
             >{props.children}
 
