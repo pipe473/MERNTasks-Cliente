@@ -33,11 +33,6 @@ export default (state, action) => {
                 ...state,
                 tareasproyecto: state.tareasproyecto.filter(tarea => tarea._id !== action.payload )
             }
-        case TAREA_ACTUAL:
-            return {
-                ...state,
-                tareaseleccionada: action.payload
-            }
         case ACTUALIZAR_TAREA:
             return {
                 ...state,

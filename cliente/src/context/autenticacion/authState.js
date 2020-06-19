@@ -14,7 +14,6 @@ import {
     LOGIN_ERROR,
     CERRAR_SESION
  } from '../../types';
-import Login from '../../components/auth/Login';
 
  const AuthState = props => {
      const initialState = {
